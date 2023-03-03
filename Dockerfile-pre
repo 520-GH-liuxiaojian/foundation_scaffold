@@ -1,0 +1,26 @@
+# 构建镜像
+FROM ydjharbor.jingzhuan.cn/base/zny-fe:14.15.5-alpine as media-front
+
+# Create app directory
+WORKDIR /wwwroot_test
+
+# Bundle app source
+COPY ./.npmrc ./package.json ./yarn.lock ./
+RUN echo '192.168.0.248 gitlab.ydjdev.com' >> /etc/hosts && yarn
+
+COPY . .
+RUN  npm run build:pre
+RUN  mkdir /wwwroot && cp -rf ./favicon.ico servers/ dist/pre_prod/* /wwwroot
+
+
+
+# 发布镜像
+FROM ydjharbor.jingzhuan.cn/base/nginx:1.16.0-alpine
+LABEL maintainer="chenmingle <406552227@qq.com>"
+WORKDIR /home/wwwroot
+
+
+COPY --from=media-front /wwwroot  .
+
+RUN ls -a
+

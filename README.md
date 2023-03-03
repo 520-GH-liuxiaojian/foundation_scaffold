@@ -11,31 +11,31 @@ Have a quick view:
 > for husky
 
 ```bash
-$ npm run prepare
+$ pnpm run prepare
 ```
 
 > If you do not need the taobao registry, you can change it in `.npmrc`
 
 ```bash
-$ npm i
+$ pnpm i
 ```
 
 ## test
 
 ```bash
-$ npm test
+$ pnpm test
 ```
 
 ## build for development
 
 ```bash
-$ npm run dev
+$ pnpm run dev
 ```
 
 ## build for production
 
 ```bash
-$ npm run build:(qa/prod)
+$ pnpm run build:(qa/prod)
 ```
 
 ## characteristics

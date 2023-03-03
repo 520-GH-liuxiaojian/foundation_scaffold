@@ -4,3 +4,6 @@
 /**/*.ts
 /**/*.tsx
 /**/*.js
+*less.d.ts
+.mfsu
+.mfsu-prod
